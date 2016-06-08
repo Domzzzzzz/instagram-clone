@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Show Me Your Pics!</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -36,7 +36,14 @@
   </div>
 </nav>
 
-<%= yield %>
+<!---------------------------------------------------------------------------->
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+  <% end %>
+  <%= yield %>
+</div>
+<!---------------------------------------------------------------------------->
 
 </body>
 </html>

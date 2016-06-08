@@ -1,8 +1,19 @@
-<% @posts.each do |post| %>
-  <div class="row">
-    <%= link_to post_path(post)do %>
-      <%= image_tag post.image.url(:medium) %>
-    <% end %>
-    <p><%= post.caption %></p>
-  </div>
-<% end %>
+<div class="posts-wrapper row">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          Dominic LaRouche
+        </div>
+      </div>
+      <div class="image center-block">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.image.url(:medium), class: 'img-responsive' %>
+        <% end %>
+        <p class="caption">
+          <%= post.caption %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
