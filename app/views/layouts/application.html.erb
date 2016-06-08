@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show Me Your Pics!</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class='navbar navbar-default'>
+  <div class='navbar-container'>
+    <div class='navbar-header'>
+      <button class='navbar-toggle collapsed' type="button" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <div class='navbar-brand'>
+        <%= link_to root_path do %>
+          <i class="fa fa-image"></i> Show Me Your Pics!
+        <% end %>
+      </div>
+    </div>
+    <div class='collapse navbar-collapse' id='bs-navbar-collapse-1'>
+      <ul class='nav navbar-nav navbar-right'>
+
+        <li><%= link_to 'New Post', new_post_path %></li>
+
+        <li><%= link_to 'Log in', '#' %></li>
+
+        <li><%= link_to 'Register', '#' %></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
