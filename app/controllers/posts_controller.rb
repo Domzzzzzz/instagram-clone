@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
+    
     if @post.save
      flash[:success] = "Your post has been created!"
      redirect_to posts_path
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   # a user can change the URL in the address bar to navigate to another users
-  # edit post page, this method prevents that and redirects the user to root 
+  # edit post page, this method prevents that and redirects the user to root
   def owned_post
     unless current_user == @post.user
       flash[:alert] = "That post doesn't belong to you!"
