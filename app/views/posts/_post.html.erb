@@ -11,7 +11,7 @@
     </div>
     <div class="image center-block">
       <%= link_to post_path(post) do %>
-        <%= image_tag post.image.url(:medium), class: 'img-responsive' %>
+        <%= image_tag post.image.url(:medium), class: 'img-responsive pic' %>
       <% end %>
     </div>
 
@@ -37,7 +37,7 @@
       </div>
       <div class="comment-form col-sm-11">
         <%= form_for([post, post.comments.build], remote: true) do |f| %>
-          <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content', id: 'comment_content_#{post.id}' %>
+          <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content form-control', id: 'comment_content_#{post.id}' %>
         <% end %>
       </div>
     </div>

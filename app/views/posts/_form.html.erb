@@ -1,15 +1,23 @@
-<div class="form-wrapper">
-  <%= form_for @post, html: { class: 'form-horizontal', multipart: true } do |f| %>
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :image %> <br>
-      <div class="form-group text-center">
-        <%= f.label :caption %>
-        <%= f.text_field :caption %> <br>
-      </div>
-      <div class="form-group text-center">
-        <%= f.button :submit, class: 'btn btn-success' %>
+<div class="posts-wrapper">
+  <div class="post">
+    <div class="post-body">
+      <div class="image-wrap">
+        <%= image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive pic' %>
+        <%= simple_form_for @post, html: { multipart: true } do |f| %>
+          <div class="container-fluid">
+            <div class="form-group text-center">
+              <h4>Upload an image</h4>
+              <%= f.input :image, label: false, input_html: { onChange: 'loadFile(event)' } %>
+            </div>
+            <div class="form-group text-center">
+              <%= f.input :caption, label: false, placeholder: 'Add a caption', input_html: { class: 'form-control' } %>
+            </div>
+            <div class="form-group text-center">
+              <%= f.button :submit, class: 'btn-success btn-block' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

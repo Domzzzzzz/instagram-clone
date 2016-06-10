@@ -151,6 +151,13 @@ sans-serif;
   }
 }
 
+.pic {
+  max-height: 450px;
+  height: 100%;
+  max-width: 642px;
+  width: 100%;
+}
+
 .post-bottom {
   .user-name, .comment-content {
     display: inline;
@@ -207,7 +214,9 @@ sans-serif;
   justify-content: center;
 }
 
-/* ## Wrapper and styling for the new and edit views ## */
+
+
+/* ## Wrapper and styling for the new and edit post views ## */
 .form-wrapper {
   width: 60%;
   margin: 20px auto;
@@ -220,4 +229,17 @@ sans-serif;
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+#image-preview {
+  margin: 0px auto;
+  max-height: 450px;
+  height: 100%;
+  max-width: 642px;
+  width: 100%;
+}
+
+#post_image {
+  padding: 1em;
+  margin: 0px auto;
 }
