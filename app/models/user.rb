@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :posts, dependent: :destroy
-
   # Require username with signup & set max/min username length
   validates :username, presence: true, length: { minimum: 4, maximum: 16 }
 
@@ -10,5 +8,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
 end

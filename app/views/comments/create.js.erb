@@ -1,4 +1,5 @@
 // javascript response for comments controller create method
-$('#comments_<%= @post.id %>').append("<%= j render 'comments/comment', post: @post, comment: @comment %>");
+$('#comments_<%= @post.id %>').append
+("<%= j render 'comments/comment', post: @post, comment: @comment %>");
 
-$('#comment_content_<%= @post.id %>').val('');
+$('#comment_content_<%= @post.id %>, input[type="text"]').val('');

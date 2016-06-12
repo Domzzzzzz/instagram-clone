@@ -9,4 +9,13 @@ module ApplicationHelper
     end
   end
 
+  # Helper displays default placeholder img if a post img don't exist
+  def form_image_select(post)
+    if post.image.exists?
+      image_tag post.image, id: 'image-preview', class: 'img-responsive'
+    else
+      image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive'
+    end
+  end
+
 end

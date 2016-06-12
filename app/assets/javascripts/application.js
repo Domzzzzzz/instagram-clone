@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+// function for changing the default/current img
+// to the img uploaded into the new/edit post form
+var loadFile = function(event) {
+  var output = document.getElementById('image-preview');
+  output.src = URL.createObjectURL(event.target.files[0]);
+};
