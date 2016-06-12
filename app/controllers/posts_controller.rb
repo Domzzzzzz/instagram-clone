@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order('created_at DESC')
   end
 
   def new
@@ -42,6 +42,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path
+    flash[:success] = "Post deleted"
   end
 
 #------------------------------------------------------------------------
