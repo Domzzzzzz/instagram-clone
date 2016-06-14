@@ -17,9 +17,17 @@
 //= require_tree .
 
 
-// function for changing the default/current img
-// to the img uploaded into the new/edit post form
-var loadFile = function(event) {
-  var output = document.getElementById('image-preview');
-  output.src = URL.createObjectURL(event.target.files[0]);
-};
+// function for infinite scrolling
+// gets triggered when user scrolls the window
+// checks if user has scrolled near bottom of page
+// replaces pagination link with loading animation
+// then gets the next page of the pagination
+$(function() {
+  $(window).scroll(function(){
+    var url = $('.pagination .next_page').attr('href');
+    if(url && $(window).scrollTop() > $(document).height() - $(window).height() - 50){
+      $('.pagination').html('<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+      $.getScript(url);
+    }
+  });
+});

@@ -1,2 +1,3 @@
-// javascript response for comments controller destroy method
+// AJAX response for comments controller destroy method
+// deletes a comment from the post and renders the remaining comments 
 $('#comments_<%= @post.id %>').html("<%= j render @post.comments, post: @post, comment: @comment %>");

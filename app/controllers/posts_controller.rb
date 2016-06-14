@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.order('created_at DESC').page(params[:page]).per_page(10)
   end
 
   def new

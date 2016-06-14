@@ -1,3 +1,7 @@
-  <% @posts.each do |post| %>
-    <%= render 'post', post: post %>
-  <% end %>
+<div id="posts">
+  <%= render 'allposts' %>
+</div>
+
+<div class="text-center">
+  <%= will_paginate @posts %>
+</div>

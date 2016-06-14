@@ -1,0 +1,13 @@
+// AJAX response to reaching bottom of the page
+// appends the next page to the end of #posts div
+// places the pagination link at the bottom if there is a next page
+// creates a 2 second delay between loading pages to see the animation
+// if the end of all posts is reached removes the pagination link
+$('#posts').append("<%= j render @posts %>");
+
+<% if @posts.next_page %>
+  $('.pagination').replaceWith("<%= j will_paginate(@posts) %>");
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 2 %>
