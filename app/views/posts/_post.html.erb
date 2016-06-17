@@ -3,7 +3,7 @@
     <div class="post-head">
       <div class="thumb-img"></div>
       <div class="user-name">
-        <%= post.user.username %>
+        <%= link_to post.user.username, profile_path(post.user.username) %>
       </div>
       <div class="time-ago">
         <%= how_long_ago(post) %>
@@ -19,7 +19,7 @@
       <div class="caption">
         <div class="caption-content">
           <div class="user-name">
-            <%= post.user.username %>
+            <%= link_to post.user.username, profile_path(post.user.username) %>
           </div>
         <%= post.caption %>
         </div>
@@ -30,14 +30,14 @@
               <% if post.comments.count > 4 %>
                 <div id="show-some-<%= post.id %>">
                   <%= link_to link_to "View more comments", '#', remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"}%>
-                  <%= render post.comments.order('created_at Asc').last(4), post: post %>
+                  <%= render post.comments.order('created_at ASC').last(4), post: post %>
                 </div>
                 <div class="hidden" id="show-all-<%= post.id %>">
                   <%= link_to link_to "View less comments", '#', remote: true, class: 'less-comments', data: {post_id: "#{post.id}", type: "html"}%>
-                  <%= render post.comments.order('created_at Asc'), post: post %>
+                  <%= render post.comments.order('created_at ASC'), post: post %>
                 </div>
               <% else %>
-                <%= render post.comments.order('created_at Asc'), post: post %>
+                <%= render post.comments.order('created_at ASC'), post: post %>
               <% end %>
             <% end %>
           </div>
