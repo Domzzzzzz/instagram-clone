@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<div class="container">
-  <%= render 'layouts/navbar' %>
+<%= render 'layouts/navbar' %>
 
+<div class="container">
   <% flash.each do |type, content| %>
     <% if content.respond_to?('each')
         content.each do |item| %>

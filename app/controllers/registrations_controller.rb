@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
-
-#------------------------------------------------------------------------
+# Devise Strong params for accepting newly added params for users 
+# default params = :email, :password, :password_confirmation, current_password
   private
 
   def sign_up_params

@@ -24,12 +24,27 @@
         <%= post.caption %>
         </div>
         <div class="comments" id="comments_<%= post.id %>">
-          <% if post.comments %>
-            <%= render post.comments, post: post %>
-          <% end %>
+          <div class="paginator" id="#comments-paginator-<%= post.id %>">
+            <% if post.comments.any? %>
+              <hr>
+              <% if post.comments.count > 4 %>
+                <div id="show-some-<%= post.id %>">
+                  <%= link_to link_to "View more comments", '#', remote: true, class: 'more-comments', data: {post_id: "#{post.id}", type: "html"}%>
+                  <%= render post.comments.order('created_at Asc').last(4), post: post %>
+                </div>
+                <div class="hidden" id="show-all-<%= post.id %>">
+                  <%= link_to link_to "View less comments", '#', remote: true, class: 'less-comments', data: {post_id: "#{post.id}", type: "html"}%>
+                  <%= render post.comments.order('created_at Asc'), post: post %>
+                </div>
+              <% else %>
+                <%= render post.comments.order('created_at Asc'), post: post %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+
 
     <div class="comment-like-form row">
       <div class="like-button col-sm-1">
@@ -37,7 +52,7 @@
       </div>
       <div class="comment-form col-sm-11">
         <%= form_for([post, post.comments.build], remote: true) do |f| %>
-          <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content form-control', id: 'comment_content_#{post.id}' %>
+          <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content transparent-input', style: 'width:500px;', id: 'comment_content_#{post.id}' %>
         <% end %>
       </div>
     </div>
