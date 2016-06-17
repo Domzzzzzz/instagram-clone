@@ -1,11 +1,11 @@
-<div class="posts-wrapper">
+<div class="profile-wrapper">
   <div class="row profile-header">
-    <div class="col-md-6">
-      <div class="img-circle">
+    <div class="col-md-4">
+      <div class="img-circle profile-image">
         <%= profile_avatar_select(@user) %>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="user-name-and-follow">
         <h3 class="profile-user-name"><%= @user.username %></h3>
         <span>
@@ -22,6 +22,12 @@
   </div>
 </div>
 
-<% @posts.each do |post| %>
-  <%= render 'posts/post', post: post %>
-<% end %>
+<div class="row profile-wrapper">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <%= link_to post_path(post) do %>
+        <%= image_tag post.image, class: 'img-responsive post-pics' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -23,8 +23,7 @@ html {
 
 body {
   background-color: #fafafa;
-  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica,
-sans-serif;
+  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 /* ## custom color styling for devise error msgs ## */
@@ -268,6 +267,13 @@ input.transparent-input{
 }
 
 /* ## Styles for profile edit and show ## */
+.profile-wrapper {
+  padding-top: 40px;
+  margin: 0 auto;
+  max-width: 950px;
+  width: 100%;
+}
+
 #user_avatar {
   margin: 20px auto;
 }
@@ -278,8 +284,16 @@ input.transparent-input{
 
 .profile-image {
   margin: 20px auto;
-  height: 100px;
-  width: 100px;
+  max-height: 150px;
+  max-width: 150px;
+  height: 100%;
+  width: 100%;
+}
+
+.post-pics {
+  margin-bottom: 27px;
+  height: 300px;
+  width: 300px;
 }
 
 .user-name-and-follow {
@@ -297,6 +311,6 @@ input.transparent-input{
 
 .profile-bio {
   margin-top: 20px;
-  width: 330px;
+  width: 600px;
   word-wrap: break-word;
 }
