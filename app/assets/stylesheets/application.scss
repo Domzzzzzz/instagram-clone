@@ -26,6 +26,43 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
+/* ## MODAL CUSTOMIZATIONS ## */
+
+.modal-wrapper {
+  padding-top: 5px;
+  margin: 0 auto;
+}
+
+.modal-post {
+  background-color: #fff;
+  border-color: #edeeee;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 0;
+}
+
+.modal-comments {
+  height: 170px;
+  overflow: scroll;
+}
+
+.modal-pic {
+  zoom: 2;  //increase if you have very small images
+  display: block;
+  height: 170px;
+  width: auto;
+  max-width: 100%;
+}
+
+.modal-image {
+  background-image: url(modal-picpath) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /* ## custom color styling for devise error msgs ## */
 .devise-errors {
   margin-top: 12px;
@@ -43,6 +80,7 @@ body {
   color: #a94442;
 }
 
+/* ## REGISTRATION PAGE CUSTOMIZATIONS ## */
 .registration-bg {
   padding-top: 4em;
   height: 700px;
@@ -53,12 +91,10 @@ body {
   background-size: cover;
 }
 
-
-/* ## NAVBAR CUSTOMISATIONS ## */
 .log-in {
   margin-left: auto;
   margin-right: auto;
-  text-align:center;
+  text-align: center;
   border: none;
 }
 
@@ -73,6 +109,7 @@ body {
   background-size: cover;
 }
 
+/* ## NAVBAR CUSTOMIZATIONS ## */
 .panel {
   border-radius: 8px;
 }
@@ -110,7 +147,7 @@ body {
   margin: 0 auto;
 }
 
-/* ## POST CUSTOMISATIONS ## */
+/* ## POST CUSTOMIZATIONS ## */
 .posts-wrapper {
   padding-top: 40px;
   margin: 0 auto;
@@ -124,7 +161,7 @@ body {
   border-style: solid;
   border-radius: 3px;
   border-width: 1px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   .post-head {
     flex-direction: row;
     height: 64px;
@@ -160,6 +197,13 @@ body {
 }
 
 .post-bottom {
+  margin-bottom: 7px;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  line-height: 18px;
   .user-name, .comment-content {
     display: inline;
   }
@@ -182,17 +226,11 @@ body {
       margin-right: 0.3em;
     }
     .delete-comment {
+      margin-top: 1px;
       float: right;
       color: #515151;
     }
   }
-  margin-bottom: 7px;
-  padding-top: 24px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 10px;
-  font-size: 15px;
-  line-height: 18px;
 }
 
 /* ## COMMENT CUSTOMIZATIONS ## */
@@ -249,8 +287,8 @@ input.transparent-input{
 }
 
 .edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #image-preview {
