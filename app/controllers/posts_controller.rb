@@ -19,9 +19,11 @@ class PostsController < ApplicationController
 
   def show
     respond_to do |format|
+      format.html
       format.js
     end
   end
+
 
   def create
     @post = current_user.posts.build(post_params)

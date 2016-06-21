@@ -20,14 +20,12 @@
         </div>
       </div>
 
-
-
       <div class="comment-like-form row">
         <div class="like-button col-sm-1">
           <span class="glyphicon glyphicon-heart-empty"></span>
         </div>
         <div class="comment-form col-sm-11">
-          <%= form_for([post, post.comments.build], remote: true) do |f| %>
+          <%= form_for([post, post.comments.build], class: 'comment-on', remote: true) do |f| %>
             <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content transparent-input', style: 'width:500px;', id: 'comment_content_#{post.id}', autocomplete: 'off' %>
           <% end %>
         </div>
