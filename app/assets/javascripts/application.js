@@ -32,11 +32,3 @@ $(function() {
     }
   });
 });
-
-// function that adds 'comments_<%= @post.id %>' to the modal once opened
-// this enables the modal to use AJAX response to create/delete comments
-$(function(){
-  $('#myModal2').on('show.bs.modal', function(){
-    $('.modal-body').attr('id', 'comments_<%= @post.id %>');
-  });
-});

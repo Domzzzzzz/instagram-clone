@@ -1,3 +1,4 @@
 // AJAX response for comments controller destroy method
 // deletes a comment from the post and renders the remaining comments
 $('#comments_<%= @post.id %>').html("<%= j render @post.comments.order('created_at ASC').last(4), post: @post, comment: @comment %>");
+$('#myModal2').modal('hide');

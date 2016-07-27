@@ -1,34 +1,38 @@
 <div class="modal-wrapper row">
-  <div class="col-sm-5 modal-image">
+  <div class="col-sm-8 modal-image">
     <%= image_tag post.image.url(:medium), class: 'img-responsive modal-pic' %>
+    <div style="margin-top:5px;" class="text-center">
+      <!-- Only the user can edit their own post -->
+      <% if @post.user.id == current_user.id %>
+        <%= link_to 'Edit', edit_post_path(@post) %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="col-sm-7">
-    <div class="post-bottom">
-      <div class="caption">
-        <div class="caption-content">
-          <div class="user-name">
-            <%= link_to post.user.username, profile_path(post.user.username) %>
-          </div>
-          <%= post.caption %> <hr>
-          </div>
-        </div>
-        <div class="modal-comments comments">
-          <% if post.comments.any? %>
-            <%= render post.comments.order('created_at ASC'), post: post %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="comment-like-form row">
-        <div class="like-button col-sm-1">
-          <span class="glyphicon glyphicon-heart-empty"></span>
-        </div>
-        <div class="comment-form col-sm-11">
-          <%= form_for([post, post.comments.build], class: 'comment-on', remote: true) do |f| %>
-            <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content transparent-input', style: 'width:500px;', id: 'comment_content_#{post.id}', autocomplete: 'off' %>
-          <% end %>
+  <div class="col-sm-4">
+    <div class="caption">
+      <div class="caption-content">
+        <div class="user-name">
+          <%= link_to post.user.username, profile_path(post.user.username) %>
+          <p style="word-wrap:break-word;"><%= post.caption %></p> <hr>
         </div>
       </div>
     </div>
+    <div id="'comments_<%= post.id %>'" class="modal-comments comments">
+      <% if post.comments.any? %>
+        <%= render post.comments.order('created_at ASC'), post: post %>
+      <% end %>
+    </div>
+
+    <div class="like-form row">
+      <div class="like-button col-sm-1">
+        <span class="glyphicon glyphicon-heart-empty"></span>
+      </div>
+      <div class="comment-form col-sm-10">
+        <%= form_for([post, post.comments.build], class: 'comment-on', remote: true) do |f| %>
+          <%= f.text_field :content, placeholder: 'Comment on this post...', class: 'comment-content transparent-input', style: 'width:500px;', id: 'comment_content_#{post.id}', autocomplete: 'off' %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>

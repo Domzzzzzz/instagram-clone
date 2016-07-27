@@ -10,7 +10,17 @@ Rails.application.routes.draw do
   get ':username', to: 'profiles#show', as: :profile
   get ':username/edit', to: 'profiles#edit', as: :edit_profile
   patch ':username/edit', to: 'profiles#update', as: :update_profile
-  root 'posts#index'
+
+  devise_scope :user do
+    authenticated do
+      root to: 'posts#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root to: 'devise/sessions#new', as: :root
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
